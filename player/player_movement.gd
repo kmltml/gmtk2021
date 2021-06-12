@@ -14,6 +14,7 @@ func _ready():
 func _process(delta):
     process_facing()
     process_move()
+    process_shoot()
     send_cord()
 
 
@@ -42,6 +43,12 @@ func process_move():
 
     self.linear_velocity = move_vector.normalized() * move_speed
 
+
+func process_shoot():
+    $Gun.should_shoot = Input.is_action_pressed("shoot")
+
 func send_cord():
-    Global.playerPosition=self.position
-    
+    Global.playerPosition = self.position
+
+func on_bullet_hit():
+    Global.playerHealth -= 1
