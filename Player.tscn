@@ -8,8 +8,9 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 41.2699
 
-[node name="RigidBody2D" type="RigidBody2D"]
-position = Vector2( 523.785, 276.771 )
+[node name="RigidBody2D" type="RigidBody2D" groups=[
+"player",
+]]
 script = ExtResource( 2 )
 turn_alpha = 0.5
 

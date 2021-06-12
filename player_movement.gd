@@ -49,6 +49,4 @@ func process_move(delta):
     self.linear_velocity = move_vector.normalized() * move_speed
 
 func send_cord():
-    Singleton.playerRotation=self.rotation
     Singleton.playerPosition=self.position
-    Singleton.playerSelf=self
