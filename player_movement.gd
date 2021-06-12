@@ -1,22 +1,23 @@
 extends RigidBody2D
 
 export var turn_speed = 4.0
-export var move_speed = 200
+export var move_speed = 200.0
 export var turn_alpha = 1.0
+export var player_health:int = 5
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    pass # Replace with function body.
+    Singleton.playerHealth = player_health
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-    process_facing(delta)
-    process_move(delta)
+    process_facing()
+    process_move()
     send_cord()
 
 
-func process_facing(delta):
+func process_facing():
     var mouse_position = get_global_mouse_position()
     var mouse_vector = mouse_position - self.position
     var angle = atan2(mouse_vector.x, -mouse_vector.y)
@@ -28,14 +29,7 @@ func process_facing(delta):
 
     self.angular_velocity = - sign(angle_diff) * pow(abs(angle_diff / PI), turn_alpha) * turn_speed
 
-    # if abs(angle_diff) < 1.5 * delta * turn_speed:
-    #     self.angular_velocity = 0
-    # elif angle_diff < 0:
-    #     self.angular_velocity = turn_speed
-    # else:
-    #     self.angular_velocity = -turn_speed
-
-func process_move(delta):
+func process_move():
     var move_vector = Vector2(0.0, 0.0)
     if Input.is_action_pressed("move_left"):
         move_vector.x -= 1.0
@@ -47,6 +41,7 @@ func process_move(delta):
         move_vector.y += 1.0
 
     self.linear_velocity = move_vector.normalized() * move_speed
+
 
 func send_cord():
     Singleton.playerPosition=self.position

@@ -33,7 +33,6 @@ func process_move(delta):
 
 
 func _on_Monster_body_entered(body):
-    print("eeee")
     if body.is_in_group("player"):
         Singleton.playerHealth-=1
         print(Singleton.playerHealth)
