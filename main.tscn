@@ -1,17 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player.png" type="Texture" id=1]
 [ext_resource path="res://player_movement.gd" type="Script" id=2]
-[ext_resource path="res://Monster.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player_shoot.gd" type="Script" id=3]
+[ext_resource path="res://level_bounds.gd" type="Script" id=4]
+[ext_resource path="res://Monster.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 41.2699
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 743.309, 417.04 )
+
+[node name="Scene" type="Node2D"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2( 523.785, 276.771 )
 script = ExtResource( 2 )
+move_speed = 200.0
 turn_alpha = 0.5
 
 [node name="player" type="Sprite" parent="RigidBody2D"]
@@ -27,7 +33,21 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Monster" parent="." instance=ExtResource( 3 )]
+[node name="Monster" parent="." instance=ExtResource( 5 )]
 
-[node name="Monster2" parent="." instance=ExtResource( 3 )]
+[node name="Monster2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 864.785, 543.771 )
+[node name="ShootOrigin" type="Position2D" parent="RigidBody2D"]
+position = Vector2( 0, -48.1629 )
+
+[node name="ShootTimer" type="Timer" parent="RigidBody2D/ShootOrigin"]
+wait_time = 0.3
+script = ExtResource( 3 )
+bullet_speed = Vector2( 0, -560 )
+
+[node name="LevelBounds" type="Area2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds"]
+position = Vector2( 523.114, 282.189 )
+shape = SubResource( 2 )
