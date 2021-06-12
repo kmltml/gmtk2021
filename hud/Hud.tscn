@@ -19,3 +19,23 @@ stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BackGround" type="ColorRect" parent="TextureRect"]
+visible = false
+margin_right = 1026.0
+margin_bottom = 601.0
+color = Color( 1, 1, 1, 0.498039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureRect/BackGround"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 464.816
+margin_top = 272.622
+margin_right = 505.816
+margin_bottom = 286.622
+text = "PAUSE"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -14,7 +14,7 @@ script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 375.663, 278.444 )
-player_health = 50
+player_health = 1
 
 [node name="Monster" parent="." instance=ExtResource( 2 )]
 position = Vector2( 273.724, 143.469 )

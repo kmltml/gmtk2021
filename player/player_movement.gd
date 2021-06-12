@@ -42,6 +42,6 @@ func process_move():
 
     self.linear_velocity = move_vector.normalized() * move_speed
 
-
 func send_cord():
     Global.playerPosition=self.position
+    

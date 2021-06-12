@@ -15,7 +15,7 @@ func _process(delta):
     process_move(delta)
 
 
-func process_facing(delta):
+func process_facing(_delta):
     var moonster_vector = Global.playerPosition - self.position
     var angle = atan2(moonster_vector.x, -moonster_vector.y)
     var angle_diff = self.rotation - angle

@@ -8,3 +8,4 @@
 [node name="Scene" parent="." instance=ExtResource( 1 )]
 
 [node name="Control" parent="." instance=ExtResource( 6 )]
+pause_mode = 2

@@ -9,7 +9,7 @@ var can_shoot = true
 func _ready():
     connect("timeout", self, "on_timeout")
 
-func _process(delta):
+func _process(_delta):
     if Input.is_action_just_pressed("shoot") and can_shoot:
         shoot()
         start()
