@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 export var turn_speed = 4.0
-export var move_speed = 4.0
+export var move_speed = 200
 export var turn_alpha = 1.0
 
 
@@ -13,6 +13,7 @@ func _ready():
 func _process(delta):
     process_facing(delta)
     process_move(delta)
+    send_cord()
 
 
 func process_facing(delta):
@@ -46,3 +47,8 @@ func process_move(delta):
         move_vector.y += 1.0
 
     self.linear_velocity = move_vector.normalized() * move_speed
+
+func send_cord():
+    Singleton.playerRotation=self.rotation
+    Singleton.playerPosition=self.position
+    Singleton.playerSelf=self
