@@ -1,7 +1,7 @@
 extends Control 
 
 onready var heart = $TextureRect
-onready var backGraund = $TextureRect/BackGround
+onready var backGround = $BackGround
 
 func _process(_delta):
     var playerHealth = Global.playerHealth
@@ -15,6 +15,6 @@ func _process(_delta):
     if Input.is_action_just_pressed("ui_reset"):
         Global.levelScene.get_tree().reload_current_scene()
     if Input.is_action_just_pressed("ui_cancel"):
-        backGraund.visible = !backGraund.visible
+        backGround.visible = !backGround.visible
         Global.levelScene.get_tree().paused=!Global.levelScene.get_tree().paused
         
