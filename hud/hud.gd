@@ -13,7 +13,6 @@ func _process(_delta):
         heart.rect_size.x = playerHealth * 19 
 
     if Input.is_action_just_pressed("ui_reset"):
-        print("ok")
         Global.levelScene.get_tree().reload_current_scene()
     if Input.is_action_just_pressed("ui_cancel"):
         backGraund.visible = !backGraund.visible
