@@ -17,7 +17,7 @@ func _process(delta):
 func on_body_entered(body):
     var audio = AudioStreamPlayer2D.new()
     audio.stream = ExplodeSound
-    $"/root/Scene".add_child(audio)
+    Singleton.levelScene.add_child(audio)
     audio.position = position
     audio.play()
     body.queue_free()
