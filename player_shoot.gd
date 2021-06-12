@@ -25,6 +25,7 @@ func shoot():
     bullet.position = get_parent().global_position
     level.add_child(bullet)
     can_shoot = false
+    $"../Sound".play()
 
 
 func on_timeout():

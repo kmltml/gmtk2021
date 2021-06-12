@@ -1,5 +1,7 @@
 extends Area2D
 
+const ExplodeSound = preload("res://explode.wav")
+
 export var speed = Vector2(0.0, 1.0)
 
 # Called when the node enters the scene tree for the first time.
@@ -13,8 +15,14 @@ func _process(delta):
     self.position += speed * delta
 
 func on_body_entered(body):
+    var audio = AudioStreamPlayer2D.new()
+    audio.stream = ExplodeSound
+    $"/root/Scene".add_child(audio)
+    audio.position = position
+    audio.play()
     body.queue_free()
     queue_free()
+    audio.connect("finished", audio, "queue_free")
 
 func update_rotation():
     self.rotation = atan2(speed.x, -speed.y)
