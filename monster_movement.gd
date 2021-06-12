@@ -30,3 +30,12 @@ func process_move(delta):
     var move_vector = Singleton.playerPosition - self.position
 
     self.linear_velocity = move_vector.normalized() * move_speed
+
+
+func _on_Monster_body_entered(body):
+    print("eeee")
+    if body.is_in_group("player"):
+        Singleton.playerHealth-=1
+        print(Singleton.playerHealth)
+        
+
