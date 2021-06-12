@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://hod/Hod.tscn" type="PackedScene" id=2]
+[ext_resource path="res://level_scene.gd" type="Script" id=2]
+[ext_resource path="res://spawner/MonsterSpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level_bounds.gd" type="Script" id=4]
 [ext_resource path="res://Monster.tscn" type="PackedScene" id=5]
+[ext_resource path="res://hod/Hod.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 743.309, 417.04 )
 
 [node name="Scene" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 375.663, 278.444 )
@@ -30,4 +33,16 @@ visible = false
 position = Vector2( 523.114, 282.189 )
 shape = SubResource( 1 )
 
-[node name="Control" parent="." instance=ExtResource( 2 )]
+[node name="Control" parent="." instance=ExtResource( 6 )]
+
+[node name="MonsterSpawner" parent="." instance=ExtResource( 3 )]
+position = Vector2( 823, 135 )
+
+[node name="MonsterSpawner2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 212, 521 )
+
+[node name="MonsterSpawner3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 146, 125 )
+
+[node name="MonsterSpawner4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 863, 401 )
