@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://enemies/shooter/shooter.gd" type="Script" id=1]
+[ext_resource path="res://bullets/Gun.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemies/shooter/shooter.png" type="Texture" id=3]
+
+[node name="Shooter" type="RigidBody2D"]
+collision_layer = 3
+script = ExtResource( 1 )
+move_speed = 50.0
+
+[node name="shooter" type="Sprite" parent="."]
+modulate = Color( 0.0705882, 1, 0.32549, 1 )
+scale = Vector2( 0.431282, 0.431282 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -23.9311, 33.8663, -24.0798, 8.44702, -0.295593, -33.1752, 24.3804, 8.74432, 24.3804, 33.4203 )
+
+[node name="Gun" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -29.8518 )
+should_shoot = true
+bullet_collision_mask = 4
+
+[node name="Timer" parent="Gun" index="0"]
+wait_time = 1.0
+
+[editable path="Gun"]

@@ -15,14 +15,16 @@ func _process(delta):
     self.position += speed * delta
 
 func on_body_entered(body):
-    var audio = AudioStreamPlayer2D.new()
-    audio.stream = ExplodeSound
-    Global.levelScene.add_child(audio)
-    audio.position = position
-    audio.play()
-    body.queue_free()
+    if body.has_method("on_bullet_hit"):
+        var audio = AudioStreamPlayer2D.new()
+        audio.stream = ExplodeSound
+        Global.levelScene.add_child(audio)
+        audio.position = position
+        audio.play()
+        body.on_bullet_hit()
+        audio.connect("finished", audio, "queue_free")
+
     queue_free()
-    audio.connect("finished", audio, "queue_free")
 
 func update_rotation():
     self.rotation = atan2(speed.x, -speed.y)
