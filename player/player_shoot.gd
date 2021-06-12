@@ -1,6 +1,6 @@
 extends Timer
 
-const Bullet = preload("res://bullet.tscn")
+const Bullet = preload("res://bullets/bullet.tscn")
 
 export var bullet_speed = Vector2(0.0, 560.0)
 
@@ -18,7 +18,7 @@ func shoot():
     var bullet = Bullet.instance()
     bullet.speed = get_parent().global_transform.basis_xform(bullet_speed)
     bullet.position = get_parent().global_position
-    Singleton.levelScene.add_child(bullet)
+    Global.levelScene.add_child(bullet)
     can_shoot = false
     $"../Sound".play()
 

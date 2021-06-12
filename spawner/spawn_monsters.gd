@@ -11,4 +11,4 @@ func play_animation():
 func spawn_monster():
     var monster = spawned_monster.instance()
     monster.position = global_position
-    Singleton.levelScene.add_child(monster)
+    Global.levelScene.add_child(monster)

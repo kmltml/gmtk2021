@@ -1,6 +1,6 @@
 extends Area2D
 
-const ExplodeSound = preload("res://explode.wav")
+const ExplodeSound = preload("res://bullets/explode.wav")
 
 export var speed = Vector2(0.0, 1.0)
 
@@ -17,7 +17,7 @@ func _process(delta):
 func on_body_entered(body):
     var audio = AudioStreamPlayer2D.new()
     audio.stream = ExplodeSound
-    Singleton.levelScene.add_child(audio)
+    Global.levelScene.add_child(audio)
     audio.position = position
     audio.play()
     body.queue_free()

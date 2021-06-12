@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://player_shoot.gd" type="Script" id=1]
-[ext_resource path="res://player_movement.gd" type="Script" id=2]
-[ext_resource path="res://player.png" type="Texture" id=3]
-[ext_resource path="res://shoot.wav" type="AudioStream" id=4]
+[ext_resource path="res://player/player_shoot.gd" type="Script" id=1]
+[ext_resource path="res://player/player_movement.gd" type="Script" id=2]
+[ext_resource path="res://player/player.png" type="Texture" id=3]
+[ext_resource path="res://player/shoot.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 41.2699

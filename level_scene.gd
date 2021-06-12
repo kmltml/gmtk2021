@@ -1,4 +1,4 @@
 extends Node2D
 
 func _ready():
-    Singleton.levelScene = self
+    Global.levelScene = self

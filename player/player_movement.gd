@@ -8,7 +8,7 @@ export var player_health:int = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    Singleton.playerHealth = player_health
+    Global.playerHealth = player_health
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,4 +44,4 @@ func process_move():
 
 
 func send_cord():
-    Singleton.playerPosition=self.position
+    Global.playerPosition=self.position

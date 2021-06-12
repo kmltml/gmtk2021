@@ -16,7 +16,7 @@ func _process(delta):
 
 
 func process_facing(delta):
-    var moonster_vector = Singleton.playerPosition - self.position
+    var moonster_vector = Global.playerPosition - self.position
     var angle = atan2(moonster_vector.x, -moonster_vector.y)
     var angle_diff = self.rotation - angle
     if angle_diff > PI:
@@ -27,14 +27,13 @@ func process_facing(delta):
     self.angular_velocity = - sign(angle_diff) * pow(abs(angle_diff / PI), turn_alpha) * turn_speed
     
 func process_move(delta):
-    var move_vector = Singleton.playerPosition - self.position
+    var move_vector = Global.playerPosition - self.position
 
     self.linear_velocity = move_vector.normalized() * move_speed
 
 
 func _on_Monster_body_entered(body):
     if body.is_in_group("player"):
-        Singleton.playerHealth-=1
-        print(Singleton.playerHealth)
+        Global.playerHealth-=1
         
 
