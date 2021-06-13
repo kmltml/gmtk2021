@@ -50,8 +50,12 @@ func process_shoot():
 func send_cord():
     Global.playerPosition = self.position
 
-func on_bullet_hit(_body):
+func take_damage():
     Global.playerHealth -= 1
+    $HurtSFX.play()
+
+func on_bullet_hit(_body):
+    take_damage()
 
 func on_contact_damage(_enemy):
-    Global.playerHealth -= 1
+    take_damage()

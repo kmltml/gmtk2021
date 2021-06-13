@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.449612, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 0.833008, 0.82364, 0.39698, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 43.63
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.05
+orbit_velocity_random = 0.5
+scale = 5.0
+scale_random = 0.5
+color_ramp = SubResource( 2 )
+hue_variation = 0.09
+hue_variation_random = 0.1
+
+[node name="Sparkle" type="Particles2D"]
+amount = 40
+process_material = SubResource( 3 )
