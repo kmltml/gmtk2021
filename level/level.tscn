@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://level/level_bounds.gd" type="Script" id=1]
 [ext_resource path="res://enemies/rusher/Monster.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://level/level_scene.gd" type="Script" id=4]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://enemies/shooter/Shooter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://powerups/shield/Shield.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1000, 1000 )
@@ -46,3 +47,5 @@ position = Vector2( -390.537, -211.739 )
 
 [node name="MonsterSpawner4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 326.463, 64.2614 )
+
+[node name="Shield" parent="." instance=ExtResource( 7 )]
