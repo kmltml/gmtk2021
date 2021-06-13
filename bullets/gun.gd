@@ -10,7 +10,7 @@ var can_shoot = true
 func _ready():
     $Timer.connect("timeout", self, "on_timeout")
 
-func _process(delta):
+func _process(_delta):
     if should_shoot and can_shoot:
         shoot()
         $Timer.start()

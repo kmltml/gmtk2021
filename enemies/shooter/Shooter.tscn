@@ -4,7 +4,9 @@
 [ext_resource path="res://bullets/Gun.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enemies/shooter/shooter.png" type="Texture" id=3]
 
-[node name="Shooter" type="RigidBody2D"]
+[node name="Shooter" type="RigidBody2D" groups=[
+"monster",
+]]
 collision_layer = 3
 script = ExtResource( 1 )
 move_speed = 50.0

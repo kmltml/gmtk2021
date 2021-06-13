@@ -23,6 +23,8 @@ func on_body_entered(body):
         audio.play()
         body.on_bullet_hit()
         audio.connect("finished", audio, "queue_free")
+        if body.is_in_group("monster"):
+            Global.enemiesCount-=1
 
     queue_free()
 
