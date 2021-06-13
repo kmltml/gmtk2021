@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://level/level_bounds.gd" type="Script" id=1]
 [ext_resource path="res://enemies/rusher/Monster.tscn" type="PackedScene" id=2]
@@ -879,6 +879,7 @@ points = PoolVector2Array( 0, 16, 16, 0, 48, 0, 64, 16, 64, 48, 48, 64, 16, 64, 
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
+[ext_resource path="res://powerups/shield/Shield.tscn" type="PackedScene" id=666]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1093.29, 758.289 )
@@ -926,3 +927,5 @@ position = Vector2( -390.537, -211.739 )
 
 [node name="MonsterSpawner4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 326.463, 64.2614 )
+
+[node name="Shield" parent="." instance=ExtResource( 666 )]

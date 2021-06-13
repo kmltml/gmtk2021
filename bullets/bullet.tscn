@@ -7,7 +7,9 @@
 radius = 5.8981
 height = 18.1353
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" groups=[
+"bullet",
+]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 2 )
