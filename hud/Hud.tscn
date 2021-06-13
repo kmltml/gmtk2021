@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://hud/hud.gd" type="Script" id=1]
 [ext_resource path="res://hud/heart.png" type="Texture" id=2]
 [ext_resource path="res://fonts/dynamicfont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://fonts/small_dynamicfont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=5]
+[ext_resource path="res://powerups/shield/shield.png" type="Texture" id=6]
+[ext_resource path="res://enemies/rusher/monster.png" type="Texture" id=7]
+[ext_resource path="res://powerups/sparkle.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 19
@@ -138,10 +141,20 @@ __meta__ = {
 }
 
 [node name="Hello" type="ColorRect" parent="Control"]
-visible = false
 margin_right = 1023.0
 margin_bottom = 598.0
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Control/Hello"]
+position = Vector2( 208.655, 204.476 )
+scale = Vector2( 0.21, 0.21 )
+texture = ExtResource( 6 )
+
+[node name="Sparkle" parent="Control/Hello/Sprite" instance=ExtResource( 8 )]
+scale = Vector2( 1.42857, 1.42857 )
 
 [node name="Label" type="Label" parent="Control/Hello"]
 margin_left = 248.0
@@ -154,6 +167,7 @@ USE     MOUSE     TO     AIM
 PRESS     LMB     TO     SHOOT
 
 COLLECT     POWERUPS
+
 
 KILL     ALL     ENEMIES
 
@@ -171,6 +185,11 @@ text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite2" type="Sprite" parent="Control/Hello"]
+position = Vector2( 206.595, 270.163 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
 
 [connection signal="pressed" from="Control/End/Button" to="Control" method="_on_Button_pressed"]
 [connection signal="pressed" from="Control/Hello/Button2" to="Control" method="_on_Button2_pressed"]
