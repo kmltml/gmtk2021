@@ -3,6 +3,7 @@ extends "res://enemies/enemy.gd"
 export var turn_speed = 4.0
 export var move_speed = 100
 export var turn_alpha = 1.0
+export var score = 553
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

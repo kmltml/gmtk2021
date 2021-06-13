@@ -26,6 +26,7 @@ func _process(_delta):
 
 
 func lvlUp():
+    Global.score += 1000
     Global.lvlWave += 1
     spownSpowner(Global.lvlWave)
     spownPowerUp(Global.lvlWave/2)

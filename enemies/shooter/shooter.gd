@@ -3,6 +3,7 @@ extends "res://enemies/enemy.gd"
 export var turn_speed = 6.0
 export var move_speed = 10.0
 export var turn_alpha = 0.5
+export var score = 852
 
 onready var desired_distance = randf() * 300.0 + 300.0
 var side_speed = 0.0
@@ -41,3 +42,5 @@ func process_move():
 
 func on_bullet_hit(_bullet):
     queue_free()
+
+
