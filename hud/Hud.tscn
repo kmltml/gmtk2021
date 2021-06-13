@@ -44,3 +44,13 @@ text = "PAUSE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Lvl" type="Label" parent="Control"]
+margin_left = 980.688
+margin_top = 3.77548
+margin_right = 1020.69
+margin_bottom = 17.7755
+text = "lvl:1"
+__meta__ = {
+"_edit_use_anchors_": false
+}

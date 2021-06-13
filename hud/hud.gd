@@ -2,18 +2,18 @@ extends Control
 
 onready var heart = $TextureRect
 onready var backGround = $BackGround
+onready var lvl = $Lvl
 
 func _process(_delta):
     var playerHealth = Global.playerHealth
+    heart.rect_size.x = playerHealth * 19
+    lvl.text="lvl:" + str(Global.lvlWave)
 
-    
     if(playerHealth <= 0):
         heart.visible = false
-        Global.levelScene.get_tree().reload_current_scene()         
-    heart.rect_size.x = playerHealth * 19 
-
-    if Input.is_action_just_pressed("ui_reset"):
-        Global.enemiesCount<=0
+        Global.reset()
+        Global.levelScene.get_tree().reload_current_scene()       
+     
         
     if Input.is_action_just_pressed("ui_cancel"):
         backGround.visible = !backGround.visible
