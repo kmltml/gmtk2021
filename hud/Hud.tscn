@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://hud/hud.gd" type="Script" id=1]
 [ext_resource path="res://hud/heart.png" type="Texture" id=2]
 [ext_resource path="res://fonts/dynamicfont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://fonts/small_dynamicfont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 19
+font_data = ExtResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -15,7 +20,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="Hud" type="Control" parent="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="TextureRect" parent="Control/Hud"]
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 86.0
@@ -27,10 +39,45 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Lvl" type="Label" parent="Control/Hud"]
+margin_left = 960.558
+margin_top = 5.89441
+margin_right = 1004.56
+margin_bottom = 26.8944
+custom_fonts/font = ExtResource( 4 )
+text = "lvl:1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enemy" type="Label" parent="Control/Hud"]
+margin_left = 937.25
+margin_top = 35.5594
+margin_right = 1006.25
+margin_bottom = 56.5594
+custom_fonts/font = ExtResource( 4 )
+text = "enemy: 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="Control/Hud"]
+margin_left = 494.769
+margin_top = 576.348
+margin_right = 552.769
+margin_bottom = 597.348
+custom_fonts/font = ExtResource( 4 )
+text = "score: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Pause" type="ColorRect" parent="Control"]
 visible = false
-margin_right = 1026.0
-margin_bottom = 601.0
+margin_left = -6.0
+margin_top = -5.0
+margin_right = 1031.0
+margin_bottom = 611.0
 color = Color( 1, 1, 1, 0.498039 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -47,43 +94,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Lvl" type="Label" parent="Control"]
-margin_left = 960.558
-margin_top = 5.89441
-margin_right = 1004.56
-margin_bottom = 26.8944
-custom_fonts/font = ExtResource( 4 )
-text = "lvl:1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Enemy" type="Label" parent="Control"]
-margin_left = 937.25
-margin_top = 35.5594
-margin_right = 1006.25
-margin_bottom = 56.5594
-custom_fonts/font = ExtResource( 4 )
-text = "enemy: 1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Score" type="Label" parent="Control"]
-margin_left = 494.769
-margin_top = 576.348
-margin_right = 537.769
-margin_bottom = 590.348
-custom_fonts/font = ExtResource( 4 )
-text = "score: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="End" type="ColorRect" parent="Control"]
 visible = false
-margin_right = 1026.0
-margin_bottom = 599.0
+margin_left = -10.5946
+margin_top = -8.47571
+margin_right = 1031.41
+margin_bottom = 605.524
 color = Color( 0.278431, 0.278431, 0.278431, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -121,4 +137,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Hello" type="ColorRect" parent="Control"]
+visible = false
+margin_right = 1023.0
+margin_bottom = 598.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="Control/Hello"]
+margin_left = 248.0
+margin_top = 100.0
+margin_right = 678.0
+margin_bottom = 368.0
+custom_fonts/font = SubResource( 1 )
+text = "WALK     WITH     AWSD     OR     ARROW     KEYS
+USE     MOUSE     TO     AIM
+PRESS     LMB     TO     SHOOT
+
+COLLECT     POWERUPS
+
+KILL     ALL     ENEMIES
+
+HOW     MANY     WAVES     CAN     YOU     SURVIVE?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Control/Hello"]
+margin_left = 455.168
+margin_top = 339.676
+margin_right = 562.168
+margin_bottom = 371.676
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="Control/End/Button" to="Control" method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/Hello/Button2" to="Control" method="_on_Button2_pressed"]

@@ -26,10 +26,6 @@ func _process(_delta):
     if(Global.enemiesCount <= 0):
         lvlUp()
 
-    if Input.is_action_just_pressed("ui_reset"): 
-        Global.reset()
-        Global.levelScene.get_tree().reload_current_scene()
-
 
 func lvlUp():
     Global.score += 1000

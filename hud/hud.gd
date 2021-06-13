@@ -1,14 +1,17 @@
 extends Control 
 
-onready var heart = $TextureRect
-onready var backGround = $Pause
-onready var lvl = $Lvl
-onready var enemy = $Enemy
-onready var score = $Score
+onready var heart = $Hud/Health
+onready var pause = $Pause
+onready var lvl = $Hud/Lvl
+onready var enemy = $Hud/Enemy
+onready var score = $Hud/Score
 onready var endScore = $End/EndScore
 onready var end = $End
+onready var hello = $Hello
+onready var hud = $Hud
 
-
+func _ready():
+    helloState()
 
 func _process(_delta):
     var playerHealth = Global.playerHealth
@@ -19,27 +22,52 @@ func _process(_delta):
 
     if(playerHealth <= 0):
         Global.levelScene.get_tree().paused=true
-        heart.visible = false
-        score.visible = false
-        end.visible = true    
-        
+        endState()
         endScore.text="your score is: " + str(Global.score)
-  
 
-
-
+    if Input.is_action_just_pressed("ui_reset"): 
+        Global.reset()
+        Global.levelScene.get_tree().reload_current_scene()
+        hudState()
      
-        
     if Input.is_action_just_pressed("ui_cancel"):
-        backGround.visible = !backGround.visible
-        Global.levelScene.get_tree().paused=!Global.levelScene.get_tree().paused
+        if Global.levelScene.get_tree().paused==false:
+            pauseState()
+        else:
+            hudState()
         
-
+func hudState():
+    Global.levelScene.get_tree().paused=false
+    hud.visible=true
+    pause.visible=false
+    end.visible=false
+    hello.visible=false 
+           
+func pauseState():
+    Global.levelScene.get_tree().paused=true
+    hud.visible=false
+    pause.visible=true
+    end.visible=false
+    hello.visible=false 
+           
+func endState():
+    Global.levelScene.get_tree().paused=true
+    hud.visible=true
+    pause.visible=false
+    end.visible=true
+    hello.visible=false  
+          
+func helloState():
+    Global.levelScene.get_tree().paused=true
+    hud.visible=true
+    pause.visible=false
+    end.visible=false
+    hello.visible=true
 
 func _on_Button_pressed():
-    heart.visible = true
-    score.visible = true
-    end.visible = false  
     Global.reset()
     Global.levelScene.get_tree().reload_current_scene() 
-    Global.levelScene.get_tree().paused=false
+    hudState()
+
+func _on_Button2_pressed():
+    hudState()
