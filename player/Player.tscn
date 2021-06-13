@@ -45,6 +45,7 @@ smoothing_enabled = true
 smoothing_speed = 2.0
 
 [node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
 stream = ExtResource( 4 )
 
 [editable path="Gun"]

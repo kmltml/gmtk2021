@@ -27,6 +27,10 @@ func join_together_with(body):
     elif body.is_in_group("monster"):
         add_to_group("monster")
 
+    var sparkle = get_node_or_null("Sparkle")
+    if sparkle != null:
+        sparkle.queue_free()
+
     after_joined(body)
 
 func after_joined(_body):
