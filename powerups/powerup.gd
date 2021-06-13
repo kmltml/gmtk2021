@@ -37,3 +37,6 @@ func powerup_die():
 
 func attach_powerup(powerup):
     attached_things.append(powerup)
+
+func on_contact_damage(_enemy):
+    powerup_die()
