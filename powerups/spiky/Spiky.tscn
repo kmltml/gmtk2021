@@ -1,0 +1,104 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://powerups/spiky/spiky.gd" type="Script" id=1]
+[ext_resource path="res://powerups/spiky/spikes.png" type="Texture" id=2]
+[ext_resource path="res://powerups/spiky/circle.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 14.0692
+
+[sub_resource type="Animation" id=2]
+resource_name = "Extend"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("circle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.438, 0.438 ), Vector2( 0.324, 0.324 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:spikes_extended")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Retract"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("circle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.324, 0.324 ), Vector2( 0.438, 0.438 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:spikes_extended")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="Spiky" type="RigidBody2D" groups=[
+"powerup",
+]]
+contacts_reported = 1
+contact_monitor = true
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="circle" type="Sprite" parent="."]
+scale = Vector2( 0.324, 0.324 )
+texture = ExtResource( 3 )
+
+[node name="spikes" type="Sprite" parent="."]
+scale = Vector2( 0.416, 0.416 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Extend"
+anims/Extend = SubResource( 2 )
+anims/Retract = SubResource( 3 )
+
+[node name="ExtendTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="RetractTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="ExtendTimer" to="." method="_on_ExtendTimer_timeout"]
+[connection signal="timeout" from="RetractTimer" to="." method="_on_RetractTimer_timeout"]
