@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends "res://enemies/enemy.gd"
 
 export var turn_speed = 6.0
 export var move_speed = 10.0

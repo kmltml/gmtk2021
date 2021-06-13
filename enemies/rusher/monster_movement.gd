@@ -1,9 +1,8 @@
-extends RigidBody2D
+extends "res://enemies/enemy.gd"
 
 export var turn_speed = 4.0
 export var move_speed = 100
 export var turn_alpha = 1.0
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,6 +34,3 @@ func process_move(delta):
 func _on_Monster_body_entered(body):
     if body.is_in_group("player"):
         body.on_contact_damage(self)
-        
-func on_bullet_hit(_bullet):
-    queue_free()

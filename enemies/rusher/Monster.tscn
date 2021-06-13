@@ -11,6 +11,7 @@ radius = 41.2699
 
 [node name="Monster" type="RigidBody2D" groups=[
 "monster",
+"sticky",
 ]]
 collision_layer = 3
 physics_material_override = SubResource( 1 )
