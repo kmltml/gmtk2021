@@ -39,8 +39,3 @@ func process_move():
     var forward = target_vector.normalized()
     var side = Vector2(-forward.y, forward.x)
     self.linear_velocity = forward * forward_speed + side * side_speed
-
-func on_bullet_hit(_bullet):
-    queue_free()
-
-

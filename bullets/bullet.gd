@@ -24,10 +24,6 @@ func on_body_entered(body):
         audio.play()
         body.on_bullet_hit(self)
         audio.connect("finished", audio, "queue_free")
-        if body.is_in_group("monster"):
-            Global.enemiesCount -= 1
-            if body.has_method("score"):
-                Global.score += body.score
 
     queue_free()
 
