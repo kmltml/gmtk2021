@@ -5,7 +5,8 @@ var rng = RandomNumberGenerator.new()
 
 var arrayEnemies = [
     preload("res://enemies/shooter/Shooter.tscn"),
-    preload("res://enemies/rusher/Monster.tscn")
+    preload("res://enemies/rusher/Monster.tscn"),
+    preload("res://enemies/cannon/Cannon.tscn")
 ]
 
 var arrayPowerUps = [
@@ -41,7 +42,6 @@ func spownPowerUp(amount):
     Global.enemiesCount-=amount
     for i in amount:
         var s = spawner.instance()
-        #var s = arrayPowerUps[rng.randf_range(0, arrayPowerUps.size ( ))].instance()
         s.position = Global.levelScene.position+Vector2(rng.randf_range(-1000, 1000),rng.randf_range(-680, 680) )#Vector2(-750, 1150)
         s.spawned_monster=arrayPowerUps[rng.randf_range(0, arrayPowerUps.size ( ))]
         Global.levelScene.add_child(s)
