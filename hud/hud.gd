@@ -3,9 +3,11 @@ extends Control
 onready var heart = $TextureRect
 onready var backGround = $Pause
 onready var lvl = $Lvl
+onready var enemy = $Enemy
 onready var score = $Score
 onready var endScore = $End/EndScore
 onready var end = $End
+
 
 
 func _process(_delta):
@@ -13,6 +15,7 @@ func _process(_delta):
     heart.rect_size.x = playerHealth * 19
     lvl.text="lvl: " + str(Global.lvlWave)
     score.text="score: " + str(Global.score)
+    enemy.text="enemy: " + str(Global.enemiesCount)
 
     if(playerHealth <= 0):
         Global.levelScene.get_tree().paused=true
