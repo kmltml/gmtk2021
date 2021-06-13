@@ -75,7 +75,6 @@ radius = 52.9265
 [node name="Shield" type="RigidBody2D" groups=[
 "powerup",
 ]]
-position = Vector2( 84.1667, -233.64 )
 contacts_reported = 1
 contact_monitor = true
 linear_damp = 1.0
