@@ -18,7 +18,7 @@ func _process(_delta):
     heart.rect_size.x = playerHealth * 19
     lvl.text="lvl: " + str(Global.lvlWave)
     score.text="score: " + str(Global.score)
-    enemy.text="enemy: " + str(Global.enemiesCount)
+    enemy.text="enemies     left: " + str(Global.enemiesCount)
 
     if(playerHealth <= 0):
         Global.levelScene.get_tree().paused=true

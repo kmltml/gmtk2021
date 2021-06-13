@@ -14,13 +14,17 @@ _global_script_class_icons={
 
 [application]
 
-config/name="gmtk2021"
+config/name="Klej - GMTK2021 edition"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://global.gd"
+
+[display]
+
+window/size/resizable=false
 
 [global]
 

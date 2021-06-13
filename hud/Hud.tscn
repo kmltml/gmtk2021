@@ -54,12 +54,12 @@ __meta__ = {
 }
 
 [node name="Enemy" type="Label" parent="Control/Hud"]
-margin_left = 937.25
-margin_top = 35.5594
-margin_right = 1006.25
-margin_bottom = 56.5594
+margin_left = 855.517
+margin_top = 32.1004
+margin_right = 1048.52
+margin_bottom = 53.1004
 custom_fonts/font = ExtResource( 4 )
-text = "enemy: 1"
+text = "enemies     left: 10"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -109,10 +109,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/End"]
-margin_left = 408.049
-margin_top = 115.87
-margin_right = 596.049
-margin_bottom = 164.87
+margin_left = 428.179
+margin_top = 120.108
+margin_right = 616.179
+margin_bottom = 169.108
 custom_fonts/font = ExtResource( 3 )
 text = "You died."
 __meta__ = {
@@ -120,10 +120,10 @@ __meta__ = {
 }
 
 [node name="EndScore" type="Label" parent="Control/End"]
-margin_left = 448.535
-margin_top = 241.881
-margin_right = 594.535
-margin_bottom = 278.881
+margin_left = 458.07
+margin_top = 238.703
+margin_right = 604.07
+margin_bottom = 275.703
 custom_fonts/font = ExtResource( 4 )
 text = "your score is: "
 __meta__ = {
@@ -131,16 +131,17 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="Control/End"]
-margin_left = 449.871
-margin_top = 280.346
-margin_right = 556.871
-margin_bottom = 312.346
+margin_left = 468.941
+margin_top = 288.822
+margin_right = 575.941
+margin_bottom = 320.822
 text = "Reset"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Hello" type="ColorRect" parent="Control"]
+visible = false
 margin_right = 1023.0
 margin_bottom = 598.0
 color = Color( 0, 0, 0, 1 )
@@ -178,9 +179,9 @@ __meta__ = {
 
 [node name="Button2" type="Button" parent="Control/Hello"]
 margin_left = 455.168
-margin_top = 339.676
+margin_top = 397.002
 margin_right = 562.168
-margin_bottom = 371.676
+margin_bottom = 429.002
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
