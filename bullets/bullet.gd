@@ -1,7 +1,5 @@
 extends Area2D
 
-const ExplodeSound = preload("res://bullets/explode.wav")
-
 export var speed = Vector2(0.0, 1.0)
 
 # Called when the node enters the scene tree for the first time.
@@ -17,13 +15,7 @@ func _process(delta):
 
 func on_body_entered(body):
     if body.has_method("on_bullet_hit"):
-        var audio = AudioStreamPlayer2D.new()
-        audio.stream = ExplodeSound
-        Global.levelScene.add_child(audio)
-        audio.position = position
-        audio.play()
         body.on_bullet_hit(self)
-        audio.connect("finished", audio, "queue_free")
 
     queue_free()
 
