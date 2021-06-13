@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends "res://enemies/enemy.gd"
 
 export var turn_speed = 6.0
 export var move_speed = 10.0
@@ -39,6 +39,3 @@ func process_move():
     var forward = target_vector.normalized()
     var side = Vector2(-forward.y, forward.x)
     self.linear_velocity = forward * forward_speed + side * side_speed
-
-func on_bullet_hit(_bullet):
-    queue_free()

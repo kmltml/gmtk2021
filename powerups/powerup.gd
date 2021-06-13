@@ -21,6 +21,12 @@ func join_together_with(body):
     collision_mask = body.collision_mask
     if body.has_method("attach_powerup"):
         body.attach_powerup(self)
+
+    if body.is_in_group("player"):
+        add_to_group("player")
+    elif body.is_in_group("monster"):
+        add_to_group("monster")
+
     after_joined(body)
 
 func after_joined(_body):
