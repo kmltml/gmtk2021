@@ -50,5 +50,5 @@ func process_shoot():
 func send_cord():
     Global.playerPosition = self.position
 
-func on_bullet_hit():
+func on_bullet_hit(_body):
     Global.playerHealth -= 1

@@ -36,5 +36,5 @@ func _on_Monster_body_entered(body):
     if body.is_in_group("player"):
         Global.playerHealth-=1
         
-func on_bullet_hit():
+func on_bullet_hit(_bullet):
     queue_free()

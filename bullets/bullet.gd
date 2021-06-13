@@ -21,7 +21,7 @@ func on_body_entered(body):
         Global.levelScene.add_child(audio)
         audio.position = position
         audio.play()
-        body.on_bullet_hit()
+        body.on_bullet_hit(self)
         audio.connect("finished", audio, "queue_free")
 
     queue_free()
