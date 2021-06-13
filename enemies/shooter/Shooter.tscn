@@ -6,6 +6,7 @@
 
 [node name="Shooter" type="RigidBody2D" groups=[
 "monster",
+"sticky",
 ]]
 collision_layer = 3
 script = ExtResource( 1 )

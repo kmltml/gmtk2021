@@ -32,7 +32,8 @@ func on_bullet_hit(bullet):
 
 func powerup_die():
     for thing in attached_things:
-        thing.powerup_die()
+        if is_instance_valid(thing):
+            thing.powerup_die()
     queue_free()
 
 func attach_powerup(powerup):
