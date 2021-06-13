@@ -11,7 +11,12 @@ var arrayEnemies = [
 
 var arrayPowerUps = [
     preload("res://powerups/shield/Shield.tscn"),
-    preload("res://powerups/spiky/Spiky.tscn")
+    preload("res://powerups/spiky/Spiky.tscn"),
+    preload("res://powerups/shield/Shield.tscn"),
+    preload("res://powerups/spiky/Spiky.tscn"),
+    preload("res://powerups/shield/Shield.tscn"),
+    preload("res://powerups/spiky/Spiky.tscn"),
+    preload("res://powerups/heart/Heart.tscn")
 ]
 
 func _ready():
